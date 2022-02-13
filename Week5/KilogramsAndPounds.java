@@ -23,12 +23,14 @@ public class KilogramsAndPounds {
         System.out.println("kilograms   pounds   |   pounds   kilograms");
         System.out.println("---------------------|---------------------");
         // For each row in the table
-        for (int row = 0; row < 10; row++) {
+        int row = 0;
+        while (row < 10) {
             System.out.format(
                 "%9d   %6.3f   |     %2d      %6.3f\n",
                 // The formula is base+row*step
                 1+row*2, convertKgtoLb(1+row*2), 20+row*5, convertLbtoKg(20+row*5)
             );
+            row++;
         }
     }
 }
