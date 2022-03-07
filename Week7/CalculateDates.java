@@ -81,6 +81,7 @@ public class CalculateDates {
     public static boolean isInputValid(int day, int month, int year) {
         if (day <= 0 || day > getDaysInMonth(month, year)) {
             return false;
+        }
         if (month <= 0 || month > 12) {
             return false;
         }
