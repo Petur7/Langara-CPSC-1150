@@ -41,12 +41,12 @@ public class CalculateDates {
         }
     }
 
-    public static int calculateTotalDaysPassed(int day, int month, int year) {
+    public static int calculateTotalDaysPassed(int dates, int month, int year) {
         int totalDays = 0;
         for (int preMonth=1; preMonth<month; preMonth++) {
-            day += getDaysInMonth(preMonth, year);
+            dates += getDaysInMonth(preMonth, year);
         }
-        totalDays += day - 1;
+        totalDays += dates - 1;
         return totalDays;
     }
 
@@ -68,18 +68,19 @@ public class CalculateDates {
         }
     }
 
-    public static void printNextDay(int day, int month, int year) {
-        if (day+1 > getDaysInMonth(month, year)) {
+    public static void printNextDay(int dates, int month, int year) {
+        dates = dates + 1;
+        if (dates > getDaysInMonth(month, year)) {
             if (month+1 >= 12) {
                 month = 1; year++;
             } else month++;
-            day = 1;
+            dates = 1;
         }
-        System.out.printf("The next day is %s %d, %d\n", getMonthName(month), day, year);
+        System.out.printf("The next day is %s %d, %d\n", getMonthName(month), dates, year);
     }
 
-    public static boolean isInputValid(int day, int month, int year) {
-        if (day <= 0 || day > getDaysInMonth(month, year)) {
+    public static boolean isInputValid(int dates, int month, int year) {
+        if (dates <= 0 || dates > getDaysInMonth(month, year)) {
             return false;
         }
         if (month <= 0 || month > 12) {
@@ -90,11 +91,11 @@ public class CalculateDates {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the number of days: ");
+        System.out.print("Enter the number of date: ");
         int day = input.nextInt();
-        System.out.print("Enter the number of months: ");
+        System.out.print("Enter the number of month: ");
         int month = input.nextInt();
-        System.out.print("Enter the number of years: ");
+        System.out.print("Enter the number of year: ");
         int year = input.nextInt();
 
         if (!isInputValid(day, month, year)) {
